@@ -1,29 +1,41 @@
-import './style.css';
-import Resto from './mainimg.jpg';
+import "./style.css";
+import { nav } from "./nav.js";
+import { createTab1 } from "./tab1.js";
+import { createTab2 } from "./tab2.js";
+import { createTab3 } from "./tab3.js";
 
-function content() {
-    const mainDiv = document.createElement('div');
 
-    const title = document.createElement("h1");
-    title.innerText = "Restaurant";
-    title.setAttribute("style", "text-align:center");
+function initializeTabs() {
+    // Can add optimizations in the specific (tab1, tab2 tab3) module files:
+    // check if the page is already active, and only if not, regenerate it
+    tab1 = document.getElementById("tab1");
+    tab1.onclick = () => {
+        const contentDiv = document.getElementById("content");
+        contentDiv.innerHTML = "";
+        contentDiv.appendChild(createTab1());
+    };
 
-    mainDiv.appendChild(title);
+    tab2 = document.getElementById("tab2");
+    tab2.onclick = () => {
+        const contentDiv = document.getElementById("content");
+        contentDiv.innerHTML = "";
+        contentDiv.appendChild(createTab2());
+    };
 
-    const myIcon = new Image();
-    myIcon.src = Resto;
-    myIcon.classList.add('mainImg');
-
-    mainDiv.appendChild(myIcon);
-
-    const p = document.createElement("p");
-    p.innerText =
-        "We are a family-owned and operated restaurant that has been serving the community for over 20 years. We offer a wide variety of delicious and affordable dishes, made with fresh, high-quality ingredients. Whether you're in the mood for a classic American burger, a hearty pasta dish, or a fresh seafood meal, we have something for everyone.";
-
-    mainDiv.appendChild(p);
-
-    return mainDiv;
+    tab3 = document.getElementById("tab3");
+    tab3.onclick = () => {
+        const contentDiv = document.getElementById("content");
+        contentDiv.innerHTML = "";
+        contentDiv.appendChild(createTab3());
+    };
 }
 
-const contentDiv = document.getElementById('content');
-contentDiv.appendChild(content());
+const navDiv = nav();
+navDiv.firstChild.childNodes[0].classList.add("activetab");
+const body = document.getElementsByTagName("body");
+body[0].insertBefore(navDiv, body[0].firstChild);
+
+initializeTabs();
+
+const contentDiv = document.getElementById("content");
+contentDiv.appendChild(createTab1());
