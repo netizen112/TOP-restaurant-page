@@ -1,0 +1,30 @@
+{
+    "name": "top-restaurant-page",
+    "version": "0.0.1",
+    "description": "theodinproject.com",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack",
+        "watch": "webpack --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/netizen112/TOP-restaurant-page.git"
+    },
+    "keywords": [
+        "odin"
+    ],
+    "author": "netizen112",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/netizen112/TOP-restaurant-page/issues"
+    },
+    "homepage": "https://github.com/netizen112/TOP-restaurant-page#readme",
+    "devDependencies": {
+        "css-loader": "^6.8.1",
+        "style-loader": "^3.3.3",
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4"
+    }
+}
